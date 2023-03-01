@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <h1>Welcome {{new_user.first_name }}</h1>
+    <p>Your account as been successfully created. Now you can <a href="{% url 'login' %}">
+        Log-in</a></p>
+    <form method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Create My Account"></p>
+    </form>
+{% endblock %}
